@@ -1,0 +1,39 @@
+.home-page{
+  margin-top: 60px;
+}
+.nav-link {
+  cursor: pointer;
+}
+
+.jumbotron-fluid{
+  position: relative;
+  min-height: 400px;
+  /*background: url('./img/showcasee-1.jpg') no-repeat; */
+  background: linear-gradient(
+    rgba(20, 20, 20, .5),
+    rgba(20, 20, 20, .5)),
+    url('./img/showcasee-1.jpg') no-repeat;
+
+  background-position: -150px -550px;
+  opacity: 0.90;
+}
+
+.display-4{
+  font-weight: initial;
+  margin-top: 130px;
+  color: #f4f4f4;
+  text-align: center;
+}
+
+.lead{
+  color: #f4f4f4;
+  text-align: center;
+}
+
+.logo-font {
+  margin-top: 0px;
+  font-size: 54px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #f4f4f4;
+}

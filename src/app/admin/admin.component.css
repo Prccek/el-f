@@ -1,0 +1,16 @@
+.admin-page {
+    margin-top: 60px;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.nav-link{
+    color: #212323;
+
+}
+.navbar-light .navbar-brand {
+    color:#ff5955;
+    font-weight: bold;
+}
