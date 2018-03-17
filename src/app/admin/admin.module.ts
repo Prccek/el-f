@@ -4,22 +4,36 @@ import { AdminComponent} from './admin.component';
 import {SharedModule} from '../shared';
 
 
+
+import {CourseService} from '../course.service';
+import {CoursesComponent} from '../courses/courses.component';
+import {NewCourseComponent} from '../new-course/new-course.component';
+
+
+
 const adminRouting: ModuleWithProviders = RouterModule.forChild([
     {
         path: 'admin',
-        component: AdminComponent
+        component: AdminComponent,
+        children: [
+            { path: 'courses', component: CoursesComponent},
+            { path: 'new-course', component: NewCourseComponent}
+        ]
     }
 ]);
 
 @NgModule ({
     imports: [
         adminRouting,
-        SharedModule
+        SharedModule,
+
+
     ],
     declarations: [
-        AdminComponent
+        AdminComponent,
+
     ],
-    providers: []
+    providers: [CourseService]
 })
 
 export class AdminModule {}

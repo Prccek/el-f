@@ -1,5 +1,6 @@
 .home-page{
   margin-top: 60px;
+  margin-bottom: 80px;
 }
 .nav-link {
   cursor: pointer;
@@ -8,7 +9,6 @@
 .jumbotron-fluid{
   position: relative;
   min-height: 400px;
-  /*background: url('./img/showcasee-1.jpg') no-repeat; */
   background: linear-gradient(
     rgba(20, 20, 20, .5),
     rgba(20, 20, 20, .5)),
@@ -36,4 +36,8 @@
   margin-bottom: 10px;
   font-weight: bold;
   color: #f4f4f4;
+}
+
+#app {
+  margin: 30px;
 }
