@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Course} from '../course.interface';
 import {CourseService} from './course.service';
+import {AuthService} from '../auth/auth.service';
+import {Observable} from 'rxjs/Observable';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -11,16 +14,16 @@ import {CourseService} from './course.service';
 export class CourseComponent implements OnInit {
   @Input() course: Course;
   @Output() courseDeleted = new EventEmitter<Course>();
-  editing = false;
+    editing = false;
     editName = null;
     editContent = null;
     editText = null;
 
-
-
-  constructor(private courseService: CourseService) { }
+    isLoggedIn$: Observable<boolean>;
+  constructor(private courseService: CourseService, private authService: AuthService) { }
 
   ngOnInit() {
+      this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 
   onEdit() {

@@ -29,9 +29,9 @@ export class CourseService {
             );
     }
 
-    updateCourse(id: number, newContent: string, newName: string, newText: string) {
+    updateCourse(id: number, content: string, name: string, text: string) {
         const token = this.authService.getToken();
-        const body = JSON.stringify({content: newContent, name: newName, text: newText});
+        const body = JSON.stringify({content: content, name: name, text: text});
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.put('http://el-backend.test/api/course/' + id + '?token=' + token, body, {headers: headers})
             .map(
