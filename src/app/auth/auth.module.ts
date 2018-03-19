@@ -2,6 +2,7 @@ import {ModuleWithProviders, NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {AuthComponent } from './auth.component';
 import {SharedModule} from '../shared';
+import {AuthService} from './auth.service';
 
 
 const authRouting: ModuleWithProviders = RouterModule.forChild([
@@ -24,7 +25,7 @@ const authRouting: ModuleWithProviders = RouterModule.forChild([
     AuthComponent
   ],
 
-  providers: []
+  providers: [AuthService]
 })
 
-export class AuthModule{}
+export class AuthModule {}

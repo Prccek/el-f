@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {CoursesComponent} from './courses.component';
-import {CourseService} from '../course.service';
+import {CourseService} from '../course/course.service';
 import {SharedModule} from '../shared';
 
 

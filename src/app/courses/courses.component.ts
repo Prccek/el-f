@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { Response } from '@angular/http';
 
 import {Course} from '../course.interface';
-import {CourseService} from '../course.service';
+import {CourseService} from '../course/course.service';
 
 @Component({
   selector: 'app-courses',

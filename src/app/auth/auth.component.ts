@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup, FormControl,Validators} from '@angular/forms';
-import { ActivatedRoute} from '@angular/router';
+import {FormBuilder, FormGroup, FormControl, Validators, NgForm} from '@angular/forms';
+import { ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from './auth.service';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'auth-page',
@@ -11,22 +13,26 @@ import { ActivatedRoute} from '@angular/router';
 export class AuthComponent implements OnInit {
   authType: String = '';
   title: String = '';
-  isSubmitting: boolean = false;
+  isSubmitting = false;
   authForm: FormGroup;
 
+
+
   constructor(
-    private route: ActivatedRoute,
-    private fb: FormBuilder
+      private router: Router,
+      private authService: AuthService,
+      private route: ActivatedRoute,
+      private fb: FormBuilder
   ) {
     // use FormBuilder to create a form group
     this.authForm = this.fb.group({
       'email' : ['', Validators.required],
-      'password' : ['',Validators.required]
+      'password' : ['', Validators.required]
     });
   }
 
 
-  ngOnInit(){
+  ngOnInit() {
     this.route.url.subscribe(data => {
       // Get the last piece of the URL ( it's either 'login' or 'register')
       this.authType = data[data.length - 1].path;
@@ -40,11 +46,17 @@ export class AuthComponent implements OnInit {
     });
   }
 
-  submitForm() {
-    this.isSubmitting = true;
-
-    let credentials = this.authForm.value;
-    // check out what you get!
-    console.log(credentials);
-  }
+  submitForm(form: NgForm) {
+      if (this.authType !== 'register') {
+          this.authService.signin(form.value.email, form.value.password)
+              .subscribe(
+                  tokenData => console.log(tokenData),
+                  error => console.log(error))
+      } else {
+          this.authService.signup(form.value.username, form.value.email, form.value.password)
+              .subscribe(
+                  response => console.log(response),
+                  error => console.log(error));
+      }
+  };
 }

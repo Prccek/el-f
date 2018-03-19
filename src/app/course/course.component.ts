@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Course} from '../course.interface';
-import {CourseService} from '../course.service';
+import {CourseService} from './course.service';
+
 
 @Component({
   selector: 'app-course',
@@ -11,9 +12,11 @@ export class CourseComponent implements OnInit {
   @Input() course: Course;
   @Output() courseDeleted = new EventEmitter<Course>();
   editing = false;
-    editName = '';
-    editContent = '';
-    editText = '';
+    editName = null;
+    editContent = null;
+    editText = null;
+
+
 
   constructor(private courseService: CourseService) { }
 
@@ -26,6 +29,7 @@ export class CourseComponent implements OnInit {
       this.editContent = this.course.content;
       this.editText = this.course.text;
   }
+
 
   onUpdate() {
       this.courseService.updateCourse(this.course.id, this.editName, this.editContent, this.editText)

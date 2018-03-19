@@ -16,14 +16,9 @@ import { CourseComponent } from './course/course.component';
 import { CoursesComponent } from './courses/courses.component';
 import { NewCourseComponent } from './new-course/new-course.component';
 import {routing} from './app.routing';
-import {CourseService} from './course.service';
-// import {CoursesModule} from './courses/courses.module';
-// import {CourseModule} from './course/course.module';
+import {CourseService} from './course/course.service';
+import {AuthService} from './auth/auth.service';
 
-
-
-
-  // const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true});
 
 @NgModule({
     declarations: [
@@ -40,15 +35,13 @@ import {CourseService} from './course.service';
         AuthModule,
         SharedModule,
         HomeModule,
-        // rootRouting,
         AdminModule,
         routing,
-        // CoursesModule,
-        // CourseModule
-
-
     ],
-  providers: [CourseService],
+  providers: [
+      CourseService,
+      // AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import {routing} from '../app.routing';
+import {AuthService} from '../auth/auth.service';
 
 @NgModule({
   imports: [

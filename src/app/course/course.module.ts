@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {CourseComponent} from './course.component';
-import {CourseService} from '../course.service';
+import {CourseService} from './course.service';
 
 
 const courseRouting: ModuleWithProviders = RouterModule.forChild([

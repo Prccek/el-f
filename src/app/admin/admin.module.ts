@@ -5,7 +5,7 @@ import {SharedModule} from '../shared';
 
 
 
-import {CourseService} from '../course.service';
+import {CourseService} from '../course/course.service';
 import {CoursesComponent} from '../courses/courses.component';
 import {NewCourseComponent} from '../new-course/new-course.component';
 
